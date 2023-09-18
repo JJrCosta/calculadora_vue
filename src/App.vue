@@ -11,9 +11,6 @@ const result = () => {
     let valor1 = state.valor1;
     let valor2 = state.valor2;
     
-    if (valor1 < valor2) {
-        return 'Erro'
-    }
     
     switch (state.operador) {
         case 'soma':
@@ -21,8 +18,11 @@ const result = () => {
         case 'subtracao':
             return valor1 - valor2;
         case 'multiplicacao':
-        return valor1 * valor2;
+            return valor1 * valor2;
         case 'divisao':
+            if (valor2 === 0) {
+                return 'Erro'
+            }
             if ((valor1 % valor2) === 0) {
                 return valor1 / valor2;
             } else {
